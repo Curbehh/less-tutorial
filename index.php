@@ -35,6 +35,16 @@
                 </a>
 
             </li>
+            
+            <li>
+            
+                <a href = "tweede_pagina.php">
+                
+                    Twee Tabellen Pagina!
+                
+                </a>
+            
+            </li>
 
         </ul>  
         

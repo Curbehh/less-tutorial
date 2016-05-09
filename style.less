@@ -12,13 +12,56 @@ a {
     
 }
 
-#lessIntro {
+@background_color: aqua;
+@border_color: red;
+@factor: 2;
+@div_width: 400px;
+@auto_value = auto;
+@pass_through = true;
+
+@factor1: 1.25;
+@factor2: 1.5;
+
+@background_color1: red;
+@background_color2: yellow;
+
+
+
+//Dit is een geparametriseerde mixin met guard.
+#lessIntro(@factor, @background_color, @div_width, @auto_value: auto, @pass_through: false) when ((@factor > 1) and (@auto_value = auto)), (@pass_through = true) {
     
-    border: 5px solid black;
-    width: 300px;
-    padding: 2em;
-    background-color: aqua;
+    border: @factor * 1em solid lighten(@border_color, 25%);
+    width: @factor * @div_width;
+    padding: @factor * 1em;
+    background-color: darken(@background_color, 10%);
     color: dimgray;
-    margin-top: 3em;
+    margin: 3em auto;
+    font-size: @factor * 1.5em;
+    border-radius: 1.5em;
+    
+}
+
+#div1 {
+    
+    #lessIntro(@factor1, @background_color1, 100px, 100px, true);
+    
+}
+
+#div2 {
+    
+    #lessIntro(@factor2, @background_color2, 300px);
+    
+}
+
+#tbl_default {
+    
+    border: 3px solid blacl;
+    
+}
+
+
+#tbl1 {
+    
+    
     
 }
