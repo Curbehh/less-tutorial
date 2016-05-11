@@ -1,0 +1,54 @@
+#tbl_default(@border, @margin, @color, @padding, @border_collapse: collapse) {
+    
+    margin: 15px auto;
+    border-collapse: @border_collapse;
+    
+    td {
+        
+        border: @border lighten(@color, 40%);
+        margin: @margin;
+        padding: @padding;
+        font-weight: 800;
+        
+    }
+    
+    th {
+        
+        border: @border @color;
+        margin: @margin;
+        padding: @padding;
+        background-color: darken(@color, 25%);
+        color: lighten(@color, -75%);
+        
+    }
+    
+    tr {
+        
+        &:nth-child(2n) {
+        
+            background-color: lighten(@color, 40%);
+            
+        }
+        
+        &:nth-child(2n + 1) {
+            
+            background-color: lighten(@color, 30%);
+            
+        }
+        
+    }
+    
+}
+
+
+#tbl1 {
+    
+    #tbl_default(3px solid, 2em, red, 1em, collapse);
+    
+}
+
+#tbl2 {
+    
+    
+    #tbl_default(3px solid, 2em, blue, 1em, collapse);
+}
