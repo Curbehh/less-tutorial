@@ -38,7 +38,7 @@
             
             <li>
             
-                <a href = "tweede_pagina.php">
+                <a href = "table_less.php">
                 
                     Twee Tabellen Pagina!
                 

@@ -28,16 +28,16 @@ a {
 
 
 //Dit is een geparametriseerde mixin met guard.
-#lessIntro(@factor, @background_color, @div_width, @auto_value: auto, @pass_through: false) when ((@factor > 1) and (@auto_value = auto)), (@pass_through = true) {
+#lessIntro(@factor, @background_color, @div_width: 400px, @auto_value: auto, @pass_through: false) when ((@factor > 1) and (@auto_value = auto)), (@pass_through = true) {
     
     border: @factor * 1em solid lighten(@border_color, 25%);
     width: @factor * @div_width;
     padding: @factor * 1em;
     background-color: darken(@background_color, 10%);
-    color: dimgray;
-    margin: 3em auto;
+    color: lighten(dimgray, 20%);
+    margin: 3em @auto_value;
     font-size: @factor * 1.5em;
-    border-radius: 1.5em;
+    border-radius: @factor * 1.5em;
     
 }
 
@@ -53,15 +53,63 @@ a {
     
 }
 
-#tbl_default {
+
+@border: 3px solid;
+@margin: 2em;
+@border_collapse: collapse;
+@padding: 1em;
+
+#tbl_default(@border, @margin, @color, @padding, @border_collapse: collapse) {
     
-    border: 3px solid blacl;
+    margin: 15px auto;
+    border-collapse: @border_collapse;
+    
+    td {
+        
+        border: @border lighten(@color, 40%);
+        margin: @margin;
+        padding: @padding;
+        font-weight: 800;
+        
+    }
+    
+    th {
+        
+        border: @border @color;
+        margin: @margin;
+        padding: @padding;
+        background-color: darken(@color, 25%);
+        color: lighten(@color, -75%);
+        
+    }
+    
+    tr {
+        
+        &:nth-child(2n) {
+        
+            background-color: lighten(@color, 40%);
+            
+        }
+        
+        &:nth-child(2n + 1) {
+            
+            background-color: lighten(@color, 30%);
+            
+        }
+        
+    }
     
 }
 
 
 #tbl1 {
     
+    #tbl_default(3px solid, 2em, red, 1em, collapse);
+    
+}
+
+#tbl2 {
     
     
+    #tbl_default(3px solid, 2em, blue, 1em, collapse);
 }
