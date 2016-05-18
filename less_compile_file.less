@@ -1,4 +1,4 @@
-#tbl_default(@border, @margin, @color, @padding, @border_collapse: collapse) {
+#tbl_default(@border, @margin, @color, @padding, @border_collapse: collapse, @text_color, @text_color_td, @text_color_th) {
     
     margin: 15px auto;
     border-collapse: @border_collapse;
@@ -9,6 +9,7 @@
         margin: @margin;
         padding: @padding;
         font-weight: 800;
+        color: @text_color_td;
         
     }
     
@@ -18,7 +19,7 @@
         margin: @margin;
         padding: @padding;
         background-color: darken(@color, 25%);
-        color: lighten(@color, -75%);
+        color: @text_color_th;
         
     }
     
@@ -40,15 +41,19 @@
     
 }
 
+@table_1_color;
+@table_2_color;
+@line_thickness;
+@text_color;
 
 #tbl1 {
     
-    #tbl_default(3px solid, 2em, red, 1em, collapse);
+    #tbl_default(@line_thickness, 2em, @table_1_color, 1em, collapse, @text_color, @text_color_td, @text_color_th);
     
 }
 
 #tbl2 {
     
+    #tbl_default(@line_thickness, 2em, @table_2_color, 1em, collapse, @text_color, @text_color_td, @text_color_th);
     
-    #tbl_default(3px solid, 2em, blue, 1em, collapse);
 }

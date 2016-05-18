@@ -1,0 +1,48 @@
+#tbl1 {
+  margin: 15px auto;
+  border-collapse: collapse;
+}
+#tbl1 td {
+  border: 1px solid #ffcccc;
+  margin: 2em;
+  padding: 1em;
+  font-weight: 800;
+  color: yellow;
+}
+#tbl1 th {
+  border: 1px solid red;
+  margin: 2em;
+  padding: 1em;
+  background-color: #800000;
+  color: green;
+}
+#tbl1 tr:nth-child(2n) {
+  background-color: #ffcccc;
+}
+#tbl1 tr:nth-child(2n + 1) {
+  background-color: #ff9999;
+}
+#tbl2 {
+  margin: 15px auto;
+  border-collapse: collapse;
+}
+#tbl2 td {
+  border: 1px solid #ccccff;
+  margin: 2em;
+  padding: 1em;
+  font-weight: 800;
+  color: yellow;
+}
+#tbl2 th {
+  border: 1px solid blue;
+  margin: 2em;
+  padding: 1em;
+  background-color: #000080;
+  color: green;
+}
+#tbl2 tr:nth-child(2n) {
+  background-color: #ccccff;
+}
+#tbl2 tr:nth-child(2n + 1) {
+  background-color: #9999ff;
+}
